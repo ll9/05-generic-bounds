@@ -3,7 +3,7 @@ package de.fhro.inf.prg3.a05.model;
 public class Flower extends Plant {
     private PlantColor color;
 
-    public Flower(double height, String family, String name, PlantColor color) throws Exception {
+    public Flower(double height, String family, String name, PlantColor color) throws IllegalArgumentException {
         super(height, family, name);
         this.color = color;
 
