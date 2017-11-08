@@ -8,7 +8,7 @@ public class Flower extends Plant {
         this.color = color;
 
         if (color == PlantColor.GREEN)
-            throw new IllegalArgumentException("A flower may be any color but green")
+            throw new IllegalArgumentException("A flower may be any color but green");
     }
 
     @Override
