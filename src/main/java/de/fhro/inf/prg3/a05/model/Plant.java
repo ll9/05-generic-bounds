@@ -24,4 +24,28 @@ public abstract class Plant {
     }
 
     public abstract PlantColor getColor();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Plant plant = (Plant) o;
+        if (this.getColor() != plant.getColor()) return false;
+        if (Double.compare(plant.height, height) != 0) return false;
+        if (family != null ? !family.equals(plant.family) : plant.family != null) return false;
+        return name != null ? name.equals(plant.name) : plant.name == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        temp = Double.doubleToLongBits(height);
+        result = (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (family != null ? family.hashCode() : 0);
+        result = 31 * result + (getColor() != null ? getColor().hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
+        return result;
+    }
 }

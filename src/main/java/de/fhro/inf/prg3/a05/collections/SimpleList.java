@@ -1,5 +1,7 @@
 package de.fhro.inf.prg3.a05.collections;
 
+import de.fhro.inf.prg3.a05.model.Flower;
+
 import java.util.function.Function;
 
 /**
@@ -77,5 +79,13 @@ public interface SimpleList<T> extends Iterable<T> {
 			result.add(transform.apply(t));
 		}
 		return result;
+	}
+
+	default boolean contains(T obj) {
+		for (T element : this)
+			if (element.equals(obj))
+				return true;
+
+		return false;
 	}
 }
