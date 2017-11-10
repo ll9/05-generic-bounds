@@ -3,12 +3,17 @@ package de.fhro.inf.prg3.a05.model;
 import de.fhro.inf.prg3.a05.collections.SimpleList;
 import de.fhro.inf.prg3.a05.collections.SimpleListImpl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PlantBedUtility {
 
-    public <R extends Plant, T extends Plant> void splitBedByColor(PlantBed<T> bed) {
-        SimpleList<R> colorList = new SimpleListImpl<R>();
+    public static <T extends Plant> Map<PlantColor, SimpleList<T>> splitBedByColor(PlantBed<T> plantBed) {
+        Map<PlantColor, SimpleList<T>> map = new HashMap<>();
         for (PlantColor color: PlantColor.values()) {
-            SimpleList<R> colorEntry = bed.getPlantsByColor(color);
+            map.put(color, plantBed.getPlantsByColor(color));
         }
+
+        return map;
     }
 }
